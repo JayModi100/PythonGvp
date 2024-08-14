@@ -1,3 +1,4 @@
+# Teacher enter the marks and mark is atleast 40 for pass. Teacher want's to check how many no of student is pass.
 
 students=int(input("How Many Students : "))
 p=0

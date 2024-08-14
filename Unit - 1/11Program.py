@@ -1,6 +1,9 @@
 # Check the positive integer is prime or not
 
-number = int(input("Enter the positive no :"))
+while 1:
+    number = int(input("Enter the positive no :"))
+    if number >= 2:
+        break
 
 i =2
 temp = number

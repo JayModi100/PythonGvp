@@ -12,17 +12,17 @@
 
 # Find lucky or not using list
 
-# suitDetail = input("Enter Suit Detail : ").upper()
-# cardDetail = input("Enter Card Detail : ").upper()
+suitDetail = input("Enter Suit Detail : ").upper()
+cardDetail = input("Enter Card Detail : ").upper()
 
 # print(suitDetail, " ", cardDetail)
-# luckySuit = ["DIAMOND", "SPADES"]
-# luckyCard = ["JACK", "ACE", "7", "10"]
+luckySuit = ["DIAMOND", "SPADES"]
+luckyCard = ["JACK", "ACE", "7", "10"]
 
-# if ((suitDetail in luckySuit) and (cardDetail in luckyCard)):
-#     print("You are lucky")
-# else:
-#     print("You are not")
+if ((suitDetail in luckySuit) and (cardDetail in luckyCard)):
+    print("You are lucky")
+else:
+    print("You are not lucky")
 
 # Find lucky or not using Dict
 
@@ -47,6 +47,6 @@ for i in luck:
         break
     
 if value == False:
-    print("You are not lucky")
+    print("You are not lucky Better luck next time")
 else:
-    print("You are lucky")
+    print("You are lucky ")

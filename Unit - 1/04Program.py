@@ -1,6 +1,8 @@
 # Word shuffle using string manipulation
 
 WordStr = "Hello I am One Line String For Suffle "
+# WordStr = str(input("Enter the String : "))
+
 
 list = WordStr.split(" ")
 list1 = ""
@@ -13,3 +15,6 @@ for i in range(mid):
     list1+=" " 
     
 print(list1)
+
+
+
