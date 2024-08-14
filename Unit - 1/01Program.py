@@ -19,9 +19,10 @@ king_of_spades = 1
 
 # Calculate the number of card are reamining
 remaining_card = total_cards - kings - spades + king_of_spades
+remaining_card1 = kings+spades-king_of_spades
                     
 # Calculate the probability
-probability = drawn_card*(remaining_card / total_cards)
+probability = drawn_card*(remaining_card1 / total_cards)
 
 # Print the result
 print("The probability of drawing neither a king nor a spade is:{0:.2f}".format(probability))

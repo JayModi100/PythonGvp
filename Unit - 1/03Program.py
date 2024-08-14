@@ -1,6 +1,7 @@
 # Extracting fields of a roll number using string indexing and slicing
 
 String = "CS-MCA-22"
+# String = input("Enter Department Name-Course Name-Roll no").upper()
 
 # Slicing Method
 Department = String[:2]
