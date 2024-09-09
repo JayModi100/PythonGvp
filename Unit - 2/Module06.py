@@ -13,10 +13,28 @@ def initializeMatrix(row,col,value):
     
     return matrix
 
-def printMatrix(matrixPass):
-    for row in matrixPass:
+def printMatrix(matrix):
+    for row in matrix:
         for col in row:
             print(col,end="   ")
         print()
 
+
+
+def additionOfMatrix(matrix1,matrix2):
+
+    if(len(matrix1) != len(matrix1)):
+        return "Error"
+    # matrix initialization
+    matrix = []
+    for row in range(len(matrix1)):
+        matrix.append([])
+        for col in range(len(matrix1[row])):
+            matrix[row].append(matrix1[row][col]+matrix2[row][col])
+    return matrix
+
+
+# def multiplicationOfMatrix(matrix1,matrix2):
+#     matrix = []
+#     for row in range(len(matrix1))
 
