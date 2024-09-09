@@ -18,8 +18,7 @@ while True:
         course = input("Enter course name to drop : ")
         Result.drop(course)
 
-    if choice == 3:
-        print("Course Details -- ")
+    if choice == 3: 
         Result.printList();
 
     if choice == 4:
