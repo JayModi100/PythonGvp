@@ -23,7 +23,7 @@ def printMatrix(matrix):
 
 def additionOfMatrix(matrix1,matrix2):
 
-    if(len(matrix1) != len(matrix1)):
+    if(len(matrix1) != len(matrix2)):
         return "Error"
     # matrix initialization
     matrix = []
@@ -34,7 +34,18 @@ def additionOfMatrix(matrix1,matrix2):
     return matrix
 
 
-# def multiplicationOfMatrix(matrix1,matrix2):
-#     matrix = []
-#     for row in range(len(matrix1))
+def multiplicationOfMatrix(matrix1,matrix2):
+    if(len(matrix1) != len(matrix2[0])):
+        return "Dimentions are not match"
+    else:
+        matrix=[]
+        for row in range(len(matrix1)):
+            matrix.append([])
+            for col in range(len(matrix1)):
+                # p=0
+                for x in range(len(matrix2)):
+                    p  = matrix1[row][x] * matrix2[x][col]
+                matrix[row][col] = p
+
+        return matrix
 
