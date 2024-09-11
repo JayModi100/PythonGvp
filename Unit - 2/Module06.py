@@ -35,17 +35,20 @@ def additionOfMatrix(matrix1,matrix2):
 
 
 def multiplicationOfMatrix(matrix1,matrix2):
-    if(len(matrix1) != len(matrix2[0])):
-        return "Dimentions are not match"
-    else:
-        matrix=[]
-        for row in range(len(matrix1)):
-            matrix.append([])
-            for col in range(len(matrix1)):
-                # p=0
-                for x in range(len(matrix2)):
-                    p  = matrix1[row][x] * matrix2[x][col]
-                matrix[row][col] = p
+    rows_A, cols_A = len(matrix1), len(matrix1[0])
+    rows_B, cols_B = len(matrix2), len(matrix2[0])
 
-        return matrix
+    if cols_A != rows_B:
+        return ("Incompatible dimensions for matrix multiplication.")
 
+    result = []
+    for i in range(rows_A):
+        result.append([])
+        for j in range(cols_B):
+            p=0
+            for k in range(cols_A):
+                p += matrix1[i][k] * matrix2[k][j]
+            result[i].append(p)
+            
+
+    return result

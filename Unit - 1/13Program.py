@@ -1,13 +1,13 @@
 
 price = int(input("Enter the Price : "));
-notes = [1,5,10]
+notes = [10,50,100]
 
 if price < min(notes):
     print("Your Value is less Then ")
 else:
     # notes.sort(reverse=True)
     notes.reverse()
-    # print(notes)   
+ 
     print(f"{notes[0]}  {notes[1]}  {notes[2]}")
  
     for f1 in range((price // notes[0]) + 1):
