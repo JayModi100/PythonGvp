@@ -1,75 +1,74 @@
-def print_board(board):
-    """Prints the Tic-Tac-Toe board."""
-    print("\n")
-    for row in board:
-        print(" | ".join(row))
-        print("-" * 5)
-    print("\n")
+import random
 
-def check_winner(board, player):
-    """Checks if the given player has won the game."""
-    # Check rows and columns
-    for i in range(3):
-        if all(board[i][j] == player for j in range(3)) or \
-           all(board[j][i] == player for j in range(3)):
-            return True
+# Initialize the board
+board = ['_','_','_','_','_','_','_','_','_']
+
+def print_board():
+   for i in range(0,8,3):
+       print("{}|{}|{}".format(board[i],board[i+1],board[i+2]))
+
+ 
+
+def check_winner(player):
+    win_conditions = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],  # Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],  # Columns
+        [0, 4, 8], [2, 4, 6]               # Diagonals
+    ]
+    for i in win_conditions:
+        if(board[i[0]]==player and board[i[1]]==player and board[i[2]]==player):
+            return 1
+    return 0
     
-    # Check diagonals
-    if board[0][0] == board[1][1] == board[2][2] == player or \
-       board[0][2] == board[1][1] == board[2][0] == player:
-        return True
-    
-    return False
 
-def is_board_full(board):
-    """Checks if the board is full (i.e., no empty spaces)."""
-    return all(cell != ' ' for row in board for cell in row)
-
-def get_move():
-    """Prompts the player to enter their move and returns it as a tuple (row, col)."""
+def player_move():
     while True:
         try:
-            move = input("Enter your move (row and column) as 'row col': ")
-            row, col = map(int, move.split())
-            if row in [1, 2, 3] and col in [1, 2, 3]:
-                return row - 1, col - 1
-            else:
-                print("Invalid input. Please enter row and column as numbers from 1 to 3.")
-        except ValueError:
-            print("Invalid input. Please enter two numbers separated by a space.")
-
-def play_tic_tac_toe():
-    """Main function to play Tic-Tac-Toe."""
-    board = [[' ' for _ in range(3)] for _ in range(3)]
-    players = ['X', 'O']
-    turn = 0
-    
-    print("Welcome to Tic-Tac-Toe!")
-    
-    while True:
-        print_board(board)
-        player = players[turn % 2]
-        print(f"Player {player}'s turn.")
-        
-        while True:
-            row, col = get_move()
-            if board[row][col] == ' ':
-                board[row][col] = player
+            move = int(input("Enter your move (1-9): ")) - 1
+            if 0 <= move < 9 and board[move] == '_':
+                board[move] = 'X'
                 break
             else:
-                print("The cell is already taken. Try again.")
-        
-        if check_winner(board, player):
-            print_board(board)
-            print(f"Player {player} wins!")
-            break
-        
-        if is_board_full(board):
-            print_board(board)
-            print("The game is a draw!")
-            break
-        
-        turn += 1
+                print("Invalid move. Try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 9.")
 
-if __name__ == "__main__":
-    play_tic_tac_toe()
+def computer_move():
+    availables = []
+    for i in range(9):
+         if(board[i]=='_'):
+             availables.append(i)
+    move = random.randint(0,8)
+    if(move in availables):
+         board[move] = 'O'
+    else:
+        while(True):
+            move=random.randint(0,8)
+            if(move in availables):
+                board[move]='O'
+                break
+
+# Main game loop
+print_board()
+l=0
+for turn in range(9):
+    if turn % 2 == 0:
+        print("Player's turn:")
+        player_move()
+    else:
+        print("Computer's turn:")
+        computer_move()
+
+    print_board()
+
+    if check_winner('X'):
+        print("Player wins!")
+        l=1
+        break
+    elif check_winner('O'):
+        print("Computer wins!")
+        l=1
+        break
+
+if l==0:
+        print("It's a draw!")
