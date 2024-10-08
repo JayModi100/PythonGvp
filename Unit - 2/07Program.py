@@ -47,28 +47,20 @@ def computer_move():
             if(move in availables):
                 board[move]='O'
                 break
+            else:
+                print("The cell is already taken. Try again.")
+        
+        if check_winner(board, player):
+            print_board(board)
+            print(f"Player {player} wins!")
+            break
+        
+        if is_board_full(board):
+            print_board(board)
+            print("The game is a draw!")
+            break
+        
+        turn += 1
 
-# Main game loop
-print_board()
-l=0
-for turn in range(9):
-    if turn % 2 == 0:
-        print("Player's turn:")
-        player_move()
-    else:
-        print("Computer's turn:")
-        computer_move()
-
-    print_board()
-
-    if check_winner('X'):
-        print("Player wins!")
-        l=1
-        break
-    elif check_winner('O'):
-        print("Computer wins!")
-        l=1
-        break
-
-if l==0:
-        print("It's a draw!")
+if __name__ == "__main__":
+    play_tic_tac_toe()
