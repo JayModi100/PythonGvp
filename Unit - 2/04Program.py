@@ -20,6 +20,23 @@ listOfArray = [50, 10, 100, 20, 90, 30, 80, 40, 70, 60]
 # Sort the List for Binary Search
 listOfArray.sort()
 
+
+
+
+
+# User input for Search Element
+searchElement = int(input("Enter Element Which you wann to search : "))
+
+# Call the Function and Get the result back
+resultElement = binarySearch(listOfArray,searchElement)
+if(searchElement == resultElement):
+    print(f"{searchElement} is found in list ")
+else:
+    print(f"{searchElement} is not found in list ")
+
+
+print("Find using a Recursion")
+
 def binarySearchusingRecursion(searchElement,low,high):
     global listOfArray
     if low <= high:
@@ -36,24 +53,10 @@ def binarySearchusingRecursion(searchElement,low,high):
 
 
 
-# User input for Search Element
-searchElement = int(input("Enter Element Which you wann to search : "))
-
-# Call the Function and Get the result back
-resultElement = binarySearch(listOfArray,searchElement)
-if(searchElement == resultElement):
-    print(f"{searchElement} is found in list which is {resultElement}")
-else:
-    print(f"{searchElement} is not found in list which is {resultElement}")
-
-
-
-
-print("Find using a Recursion")
 low = 0
 high = len(listOfArray)-1
 resultElement = binarySearchusingRecursion(searchElement,low,high)
 if(searchElement == resultElement):
-    print(f"{searchElement} is found in list which is {resultElement}")
+    print(f"{searchElement} is found in list ")
 else:
-    print(f"{searchElement} is not found in list which is {resultElement}")
+    print(f"{searchElement} is not found in list ")
